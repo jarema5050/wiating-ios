@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  wiating
+
+  Created by Jedrzej Sokolowski on 03/09/2021.
+  
+*/
+
+// General categories
+"categories-emergencyShelter" = "Emergency shelter";
+"categories-cabinWithFirePlace" = "Cabin with fireplace";
+"categories-campSite" = "Campsite";
+"categories-cave" = "Cave";
+"categories-cabinWithKeeper" = "Cabin with keeper";
+"categories-marine" = "Marine";
+"categories-observationTower" = "Observation tower";
+"categories-shelter" = "Shelter";
+"categories-spring" = "Spring";
+"categories-temple" = "Sacred space";
+"categories-urbex" = "Urbex";
+"categories-cabin" = "Cabin";

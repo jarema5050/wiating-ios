@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  wiating
+
+  Created by Jedrzej Sokolowski on 03/09/2021.
+  
+*/
+
+// General categories
+"categories-emergencyShelter" = "Schronienie awaryjne";
+"categories-cabinWithFirePlace" = "Chatka z paleniskiem";
+"categories-campSite" = "Baza namiotowa";
+"categories-cave" = "Jaskinia";
+"categories-cabinWithKeeper" = "Chatka z opiekunem";
+"categories-marine" = "Stanica wodna";
+"categories-observationTower" = "Wieża widokowa";
+"categories-shelter" = "Wiata";
+"categories-spring" = "Źródło";
+"categories-temple" = "Miejsce sakralne";
+"categories-urbex" = "Urbex";
+"categories-cabin" = "Chatka";

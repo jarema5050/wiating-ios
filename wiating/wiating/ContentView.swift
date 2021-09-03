@@ -16,7 +16,10 @@ struct ContentView: View {
         
         ZStack {
             MapView().edgesIgnoringSafeArea(.all)
-            Text("Hello")
+            VStack {
+                CategoriesPickerView()
+                Spacer()
+            }
         }
     }
 }

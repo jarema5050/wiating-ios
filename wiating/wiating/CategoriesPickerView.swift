@@ -6,34 +6,34 @@
 //
 
 import SwiftUI
+import Foundation
 
-struct CollectionView: View {
-  @State var pokemons = [PokemonImage]() /// Don't forget to fill it with data!
-
-  var body: some View {
-    ScrollView(.horizontal) {
-      HStack {
-        ForEach(pokemons) {
-            PokemonCell(pokemon: $0)
-                .background(Color.yellow)
-                .cornerRadius(5)
-                .padding(10)
+struct CategoriesPickerView: View {
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 4) {
+            Spacer(minLength: 8)
+            ForEach(CategoryEnum.allCases) {
+                CategoryButton(category: $0)
+            }
+            Spacer(minLength: 8)
+          }
         }
-      }
     }
-  }
 }
 
 struct CategoryButton: View {
-  let pokemon: PokemonImage
+  let category: CategoryEnum
   var body: some View {
     HStack {
-      Image(uiImage: pokemon.image)
-        .resizable()
-        .frame(maxWidth: 100, maxHeight: 100)
-      Text(pokemon.pokemon.pokeName)
-        .fontWeight(.semibold)
-        .padding([.leading, .trailing, .bottom], 5)
-    }
+        category.image?
+            .resizable()
+            .frame(maxWidth: 24, maxHeight: 24)
+        Text(category.title)
+            .font(.system(size: 14))
+            .foregroundColor(.black.opacity(0.87))
+    }.padding([.top, .bottom], 4).padding([.leading, .trailing], 8)
+    .background(Color.white.opacity(0.8))
+    .cornerRadius(8)
   }
 }
