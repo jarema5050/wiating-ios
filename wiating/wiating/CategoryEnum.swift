@@ -22,6 +22,38 @@ enum CategoryEnum: CaseIterable, Identifiable {
     case temple
     case urbex
     
+    init?(name: String?) {
+        guard let name = name else {
+            return nil
+        }
+        switch name {
+        case "CAVE":
+            self = .cave
+        case "SHELTER":
+            self = .shelter
+        case "CABIN":
+            self = .cabin
+        case "CABIN_WITH_FIREPLACE":
+            self = .cabinWithFirePlace
+        case "CABIN_WITH_KEEPER":
+            self = .cabinWithKeeper
+        case "CAMPSITE":
+            self = .campSite
+        case "MARINE":
+            self = .marine
+        case "OBSERVATION_TOWER":
+            self = .observationTower
+        case "SPRING":
+            self = .spring
+        case "TEMPLE":
+            self = .temple
+        case "URBEX":
+            self = .urbex
+        default:
+            return nil
+        }
+    }
+    
     var image: Image? {
         switch self {
         case .emergencyShelter: return Image("emergencyShelter")
