@@ -8,7 +8,9 @@
 import Foundation
 import CoreLocation
 
-struct LocationData {
+struct LocationData: Identifiable {
+    var documentId: String
+    var id = UUID()
     var description: String?
     var fireplace: String?
     var hints: String?
@@ -18,4 +20,5 @@ struct LocationData {
     var photos: [URL]
     var type: CategoryEnum
     var water: String?
+    
 }

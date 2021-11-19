@@ -8,19 +8,35 @@
 import SwiftUI
 import MapyKit
 import MapKit
+import Combine
 
 struct ContentView: View {
-    @State private var coords = MapCoordinates()
-    @State private var centerCoordinate = CLLocationCoordinate2D()
+    @State private var modalHeight: CGFloat = 200
+    @State private var currentId: UUID = UUID()
+    @State private var selectedPlace = MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: 50.4346, longitude: 16.6614), id: "", type: .shelter)
+    @State private var showingPlaceDetails = false
+    @State private var showingUserLocationAlert = (false, "")
+    
+    private var disposables = Set<AnyCancellable>()
+    
+    var mapView: some View {
+        let mapView = MapView(viewModel: MapLocationViewModel(), selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, showingUserLocationAlert: $showingUserLocationAlert)
+        return mapView
+    }
     
     
     var body: some View {
         ZStack {
-            MapView(centerCoordinate: $centerCoordinate, annotations: coords.annotations).edgesIgnoringSafeArea(.all)
+            mapView.edgesIgnoringSafeArea(.all).alert(showingUserLocationAlert.1, isPresented: $showingUserLocationAlert.0, actions: {})
+            
             VStack {
                 CategoriesPickerView()
                 Spacer()
-            }
+                
+                if showingPlaceDetails {
+                    MiniDetailView(viewModel: MiniLocationViewModel(id: selectedPlace.id))
+                }
+            }.edgesIgnoringSafeArea(.bottom)
         }
     }
 }
@@ -28,64 +44,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-struct MapView: UIViewRepresentable {
-    
-    typealias UIViewType = MapyView
-    
-    @Binding var centerCoordinate: CLLocationCoordinate2D
-    
-    var annotations: [MKPointAnnotation]
-    private let mapView: MapyView = MapyView()
-    
-    func makeUIView(context: Context) -> MapyView {
-        mapView.setExtendedMapType(.tourist)
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        return mapView
-    }
-    
-    func updateUIView(_ uiView: MapyView, context: Context) {
-        if annotations.count != uiView.annotations.count {
-            uiView.removeAnnotations(uiView.annotations)
-            uiView.addAnnotations(annotations)
-        }
-    }
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    class Coordinator: NSObject, MKMapViewDelegate {
-        var parent: MapView
-
-        init(_ parent: MapView) {
-            self.parent = parent
-        }
-        
-        func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-            parent.centerCoordinate = mapView.centerCoordinate
-        }
-        
-//        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        }
-    }
-}
-
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate), annotations: [MKPointAnnotation.example])
-    }
-}
-
-extension MKPointAnnotation {
-    static var example: MKPointAnnotation {
-        let annotation = MKPointAnnotation()
-        annotation.title = "London"
-        annotation.subtitle = "Home to the 2012 Summer Olympics."
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 51.5, longitude: -0.13)
-        return annotation
     }
 }

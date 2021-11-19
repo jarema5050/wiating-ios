@@ -71,6 +71,24 @@ enum CategoryEnum: CaseIterable, Identifiable {
         }
     }
     
+    var imageUI: UIImage? {
+        switch self {
+        case .emergencyShelter: return UIImage(named: "emergencyShelter")
+        case .cabin: return UIImage(named: "cabin")
+        case .cabinWithFirePlace: return UIImage(named: "cabinWithFirePlace")
+        case .campSite: return UIImage(named: "campSite")
+        case .cave: return UIImage(named: "cave")
+        case .cabinWithKeeper: return UIImage(named: "cabinWithKeeper")
+        case .marine: return UIImage(named: "marine")
+        case .observationTower: return UIImage(named: "observationTower")
+        case .shelter: return UIImage(named: "shelter")
+        case .spring: return UIImage(named: "spring")
+        case .temple: return UIImage(named: "temple")
+        case .urbex: return UIImage(named: "urbex")
+        }
+    }
+
+    
     var title: String {
         switch self {
         case .emergencyShelter: return "categories-emergencyShelter".localized

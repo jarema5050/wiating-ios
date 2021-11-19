@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4552787272B11570015EB92 /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4552785272B11570015EB92 /* LocationError.swift */; };
+		A4552788272B11570015EB92 /* LocationsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4552786272B11570015EB92 /* LocationsFetcher.swift */; };
 		A4555B4626E91BF60065067C /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4555B4526E91BF60065067C /* LocationData.swift */; };
-		A4555B4A26E91D560065067C /* MapLocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4555B4926E91D560065067C /* MapLocationsViewModel.swift */; };
-		A466A20526E681B80069A15F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466A20426E681B80069A15F /* LocationService.swift */; };
 		A466A20B26E693D00069A15F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A466A20A26E693D00069A15F /* FirebaseAuth */; };
 		A466A20D26E693D00069A15F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A466A20C26E693D00069A15F /* FirebaseFirestore */; };
 		A466A20F26E695E80069A15F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A466A20E26E695E80069A15F /* GoogleService-Info.plist */; };
@@ -17,6 +17,10 @@
 		A478A58426E2D9B500AEEEC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A478A58626E2D9B500AEEEC5 /* Localizable.strings */; };
 		A48217EC26E2BD1A007A3D99 /* CategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48217EB26E2BD1A007A3D99 /* CategoryEnum.swift */; };
 		A48217F426E2C21D007A3D99 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48217F326E2C21D007A3D99 /* String.swift */; };
+		A4867E69273AA5530085E9C9 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4867E68273AA5530085E9C9 /* UIImageExt.swift */; };
+		A48F60DE272B204100B60AA4 /* MapLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F60DC272B204100B60AA4 /* MapLocationsView.swift */; };
+		A48F60DF272B204100B60AA4 /* MapLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F60DD272B204100B60AA4 /* MapLocationViewModel.swift */; };
+		A497AE2927353AF6009E037D /* MiniDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497AE2827353AF6009E037D /* MiniDetailView.swift */; };
 		A4BBA5E226E0D559002FFA4D /* wiatingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBA5E126E0D559002FFA4D /* wiatingApp.swift */; };
 		A4BBA5E426E0D559002FFA4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBA5E326E0D559002FFA4D /* ContentView.swift */; };
 		A4BBA5E626E0D55A002FFA4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4BBA5E526E0D55A002FFA4D /* Assets.xcassets */; };
@@ -59,15 +63,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A4552785272B11570015EB92 /* LocationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
+		A4552786272B11570015EB92 /* LocationsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsFetcher.swift; sourceTree = "<group>"; };
 		A4555B4526E91BF60065067C /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
-		A4555B4926E91D560065067C /* MapLocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationsViewModel.swift; sourceTree = "<group>"; };
-		A466A20426E681B80069A15F /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		A466A20E26E695E80069A15F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A46E175226E24AFE006DA795 /* CategoriesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPickerView.swift; sourceTree = "<group>"; };
 		A478A58526E2D9B500AEEEC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A478A58726E2DB4100AEEEC5 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A48217EB26E2BD1A007A3D99 /* CategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEnum.swift; sourceTree = "<group>"; };
 		A48217F326E2C21D007A3D99 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		A4867E68273AA5530085E9C9 /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
+		A48F60DC272B204100B60AA4 /* MapLocationsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapLocationsView.swift; path = wiating/ViewModel/MapLocationsView.swift; sourceTree = SOURCE_ROOT; };
+		A48F60DD272B204100B60AA4 /* MapLocationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapLocationViewModel.swift; path = wiating/MapLocationViewModel.swift; sourceTree = SOURCE_ROOT; };
+		A497AE2827353AF6009E037D /* MiniDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDetailView.swift; sourceTree = "<group>"; };
 		A4BBA5DE26E0D559002FFA4D /* wiating.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wiating.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4BBA5E126E0D559002FFA4D /* wiatingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wiatingApp.swift; sourceTree = "<group>"; };
 		A4BBA5E326E0D559002FFA4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,18 +127,11 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A4555B4826E91C5C0065067C /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				A4555B4926E91D560065067C /* MapLocationsViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		A466A20326E6816A0069A15F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A466A20426E681B80069A15F /* LocationService.swift */,
+				A4552785272B11570015EB92 /* LocationError.swift */,
+				A4552786272B11570015EB92 /* LocationsFetcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -139,8 +140,25 @@
 			isa = PBXGroup;
 			children = (
 				A48217F326E2C21D007A3D99 /* String.swift */,
+				A4867E68273AA5530085E9C9 /* UIImageExt.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A48F60D3272B1F6900B60AA4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A48F60DC272B204100B60AA4 /* MapLocationsView.swift */,
+				A48F60DD272B204100B60AA4 /* MapLocationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A48F60D7272B1FB400B60AA4 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Locations;
 			sourceTree = "<group>";
 		};
 		A4BBA5D526E0D559002FFA4D = {
@@ -167,13 +185,15 @@
 		A4BBA5E026E0D559002FFA4D /* wiating */ = {
 			isa = PBXGroup;
 			children = (
-				A4555B4826E91C5C0065067C /* ViewModel */,
+				A48F60D7272B1FB400B60AA4 /* Locations */,
+				A48F60D3272B1F6900B60AA4 /* ViewModel */,
 				A4555B4726E91C050065067C /* Model */,
 				A466A20326E6816A0069A15F /* Services */,
 				A48217F226E2C202007A3D99 /* Extensions */,
 				A4BBA5E126E0D559002FFA4D /* wiatingApp.swift */,
-				A4BBA5E326E0D559002FFA4D /* ContentView.swift */,
 				A48217EB26E2BD1A007A3D99 /* CategoryEnum.swift */,
+				A4BBA5E326E0D559002FFA4D /* ContentView.swift */,
+				A497AE2827353AF6009E037D /* MiniDetailView.swift */,
 				A478A58626E2D9B500AEEEC5 /* Localizable.strings */,
 				A46E175226E24AFE006DA795 /* CategoriesPickerView.swift */,
 				A4BBA5E526E0D55A002FFA4D /* Assets.xcassets */,
@@ -286,7 +306,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					A4BBA5DD26E0D559002FFA4D = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -357,13 +377,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4552788272B11570015EB92 /* LocationsFetcher.swift in Sources */,
+				A497AE2927353AF6009E037D /* MiniDetailView.swift in Sources */,
 				A48217EC26E2BD1A007A3D99 /* CategoryEnum.swift in Sources */,
 				A4BBA5E426E0D559002FFA4D /* ContentView.swift in Sources */,
 				A48217F426E2C21D007A3D99 /* String.swift in Sources */,
+				A4867E69273AA5530085E9C9 /* UIImageExt.swift in Sources */,
 				A46E175326E24AFE006DA795 /* CategoriesPickerView.swift in Sources */,
-				A4555B4A26E91D560065067C /* MapLocationsViewModel.swift in Sources */,
 				A4555B4626E91BF60065067C /* LocationData.swift in Sources */,
-				A466A20526E681B80069A15F /* LocationService.swift in Sources */,
+				A48F60DF272B204100B60AA4 /* MapLocationViewModel.swift in Sources */,
+				A48F60DE272B204100B60AA4 /* MapLocationsView.swift in Sources */,
+				A4552787272B11570015EB92 /* LocationError.swift in Sources */,
 				A4BBA5E226E0D559002FFA4D /* wiatingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -477,6 +502,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -537,7 +563,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"wiating/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = wiating/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,7 +584,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"wiating/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = wiating/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -577,7 +603,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = wiatingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -598,7 +624,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = wiatingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -10,14 +10,6 @@ import FirebaseFirestore
 import Combine
 import CoreLocation
 
-public enum LocationError: Error {
-    case apiError(String)
-    case invalidEndpoint
-    case invalidResponse
-    case noData
-    case serializationError
-}
-
 public class LocationService {
     
     static let shared = LocationService()
@@ -32,7 +24,7 @@ public class LocationService {
                 promise(.success(response))
                 return
             }
-            self?.db.collection("places").getDocuments() { (querySnapshot, err) in
+            self?.db.collection("places").addSnapshotListener() { (querySnapshot, err) in
                 if let err = err {
                     promise(.failure(.apiError(err.localizedDescription)))
                     return
