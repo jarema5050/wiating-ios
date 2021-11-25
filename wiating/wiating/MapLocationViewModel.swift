@@ -56,6 +56,7 @@ struct MiniLocation {
     var subtitle: String?
     var type: CategoryEnum
     var imageURL: URL?
+    var id: String
 }
 
 class MiniLocationViewModel: ObservableObject, Identifiable {
@@ -74,8 +75,32 @@ class MiniLocationViewModel: ObservableObject, Identifiable {
                   break
                 }
               }, receiveValue: { [weak self] (model) in
-                  self?.location = MiniLocation(title: model.name, subtitle: model.description, type: model.type, imageURL: model.photos.first)
+                  self?.location = MiniLocation(title: model.name, subtitle: model.description, type: model.type, imageURL: model.photos.first, id: model.documentId)
             })
             .store(in: &disposables)
     }
 }
+
+class DetailSheetViewModel: ObservableObject, Identifiable {
+    @Published var data: LocationData?
+    
+    private var disposables = Set<AnyCancellable>()
+    
+    init(id: String? = nil) {
+        guard let id = id else { return }
+        LocationsFetcher.shared.getLocation(id: id).receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] value in
+                switch value {
+                case .failure:
+                    self?.data = nil
+                case .finished:
+                  break
+                }
+              }, receiveValue: { [weak self] (model) in
+                  self?.data = model
+                  self?.data?.photos = Array(Set(model.photos))
+            })
+            .store(in: &disposables)
+    }
+}
+
