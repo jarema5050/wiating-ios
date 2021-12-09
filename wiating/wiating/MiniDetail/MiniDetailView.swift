@@ -14,7 +14,7 @@ struct MiniDetailView: View {
     @State var modelDownloaded = false
     @State private var sheetPresented = false
     
-    @State var maxHeight :CGFloat = 125
+    @State var maxHeight: CGFloat = 125
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -36,7 +36,6 @@ struct MiniDetailView: View {
                             .onEnded({ value in
                                 if value.translation.height < 0 {
                                     sheetPresented = true
-                                    
                                 } else {
                                     //unfocus
                                 }
@@ -52,7 +51,7 @@ struct MiniDetailView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(maxWidth: 56, maxHeight: 56)
                             },
-                            placeholder: {}
+                            placeholder: { ProgressView() }
                         ).clipShape(Circle())
                         
                         VStack(alignment: .leading, spacing: 4) {
@@ -63,7 +62,7 @@ struct MiniDetailView: View {
                             
                             Text(location.subtitle ?? "Missing place information.").font(.system(size: 14)).foregroundColor(.secondary).frame(maxWidth: .infinity, alignment: .leading)
                             
-                        }.frame(maxWidth: .infinity)
+                        }.padding(.trailing, 4)
                     }
                 }.padding(.all, 8)
             }
@@ -75,7 +74,11 @@ struct MiniDetailView: View {
         .onAppear() {
         }
         .sheet(isPresented: $sheetPresented, content: {
-            DetailSheetView(viewModel: DetailSheetViewModel(id: viewModel.location?.id))
+            if let locationData = viewModel.locationData {
+                DetailSheetView(viewModel: DetailSheetViewModel(locationData: locationData))
+            } else {
+                Text("error".localized)
+            }
         })
     }
 }

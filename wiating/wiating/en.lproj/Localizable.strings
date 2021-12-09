@@ -19,3 +19,10 @@
 "categories-temple" = "Sacred space";
 "categories-urbex" = "Urbex";
 "categories-cabin" = "Cabin";
+
+"menu-logout" = "Log out";
+"menu-login" = "Log in";
+
+"error" = "Content couldn't be loaded";
+
+"detailsheet-lastupdate" = "Last update:";

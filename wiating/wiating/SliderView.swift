@@ -11,7 +11,6 @@ struct SliderView: View {
     @State var images: [URL] = []
     
     var body: some View {
-        
         TabView {
             if !images.isEmpty {
                 ForEach(images, id: \.self) { item in
@@ -31,7 +30,5 @@ struct SliderView_Previews: PreviewProvider {
 }
 
 extension URL: Identifiable {
-    public var id: UUID {
-        return UUID()
-    }
+    public var id: UUID { UUID() }
 }

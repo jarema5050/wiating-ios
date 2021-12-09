@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var selectedPlace = MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: 50.4346, longitude: 16.6614), id: "", type: .shelter)
     @State private var showingPlaceDetails = false
     @State private var showingUserLocationAlert = (false, "")
+    @State private var showingMainMenu = false
     
     private var disposables = Set<AnyCancellable>()
     
@@ -29,13 +30,24 @@ struct ContentView: View {
         ZStack {
             mapView.edgesIgnoringSafeArea(.all).alert(showingUserLocationAlert.1, isPresented: $showingUserLocationAlert.0, actions: {})
             
-            VStack {
+            VStack(spacing: 20) {
                 CategoriesPickerView()
-                Spacer()
+                
+                HStack {
+                    Spacer()
+                    VStack {
+                        Button {
+                            showingMainMenu = true
+                        } label: {
+                            Image(systemName: "circle.fill").resizable().frame(width: 36, height: 36, alignment: .center)
+                        }.fullScreenCover(isPresented: $showingMainMenu) { MainMenuView(isPresented: $showingMainMenu) }
+                    }.padding()
+                }
                 
                 if showingPlaceDetails {
+                    Spacer()
                     MiniDetailView(viewModel: MiniLocationViewModel(id: selectedPlace.id))
-                }
+                } else { Spacer() }
             }.edgesIgnoringSafeArea(.bottom)
         }
     }

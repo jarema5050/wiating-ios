@@ -24,6 +24,7 @@ struct CategoriesPickerView: View {
 
 struct CategoryButton: View {
   let category: CategoryEnum
+
   var body: some View {
     HStack {
         category.image?

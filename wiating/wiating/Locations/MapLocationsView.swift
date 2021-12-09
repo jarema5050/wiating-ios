@@ -37,8 +37,6 @@ struct MapView: UIViewRepresentable {
         uiView.removeAnnotations(uiView.annotations)
         uiView.addAnnotations(viewModel.dataSource)
     }
-
-
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -84,8 +82,6 @@ class Coordinator: NSObject, MKMapViewDelegate, UIGestureRecognizerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             setupLocationManager()
             checkLocationAuthorization()
-        } else {
-            
         }
     }
     
@@ -172,16 +168,6 @@ struct MapView_Previews: PreviewProvider {
     }
 }
 
-extension MKPointAnnotation {
-    static var example: MKPointAnnotation {
-        let annotation = MKPointAnnotation()
-        annotation.title = "London"
-        annotation.subtitle = "Home to the 2012 Summer Olympics."
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 51.5, longitude: -0.13)
-        return annotation
-    }
-}
-
 extension MKAnnotationView {
     func setDefaultImage(annotation: MKAnnotation?) {
         if let placemark = annotation as? MapAnnotation {
@@ -192,7 +178,6 @@ extension MKAnnotationView {
     func setUserLocationImage() {
         self.image = UIImage(named: "userLocation")?.scalePreservingAspectRatio(targetSize: CGSize(width: 24, height: 24))
     }
-    
     
     func setSelectedImage() {
         self.image = UIImage(named: "selectedPin")?.scalePreservingAspectRatio(targetSize: CGSize(width: 48, height: 48))

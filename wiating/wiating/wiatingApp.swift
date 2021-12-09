@@ -14,12 +14,7 @@ struct wiatingApp: App {
     init() {
         FirebaseApp.configure()
         
-        Auth.auth().signInAnonymously { authResult, error in
-            guard let user = authResult?.user else { return }
-            let uid = user.uid
-            UserDefaults.standard.set(uid, forKey: "UID")
-        }
-
+        AuthManager.shared.anonymousSignIn()
     }
     
     var body: some Scene {

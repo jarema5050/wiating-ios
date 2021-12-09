@@ -11,12 +11,30 @@
         }
       },
       {
+        "package": "Auth0",
+        "repositoryURL": "https://github.com/auth0/Auth0.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "e7feca5a575fe0ac074c14407bdb92e868a31f37",
+          "version": "1.38.0"
+        }
+      },
+      {
         "package": "BoringSSL-GRPC",
         "repositoryURL": "https://github.com/firebase/boringssl-SwiftPM.git",
         "state": {
           "branch": null,
           "revision": "734a8247442fde37df4364c21f6a0085b6a36728",
           "version": "0.7.2"
+        }
+      },
+      {
+        "package": "Facebook",
+        "repositoryURL": "https://github.com/facebook/facebook-ios-sdk",
+        "state": {
+          "branch": null,
+          "revision": "c3d367656ae8ced1149c2c6a5e6b5dd91ecad63c",
+          "version": "9.3.0"
         }
       },
       {
@@ -74,6 +92,15 @@
         }
       },
       {
+        "package": "JWTDecode",
+        "repositoryURL": "https://github.com/auth0/JWTDecode.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "3cd207fb9e943b6168a117baa3936c823204c2dc",
+          "version": "2.6.3"
+        }
+      },
+      {
         "package": "leveldb",
         "repositoryURL": "https://github.com/firebase/leveldb.git",
         "state": {
@@ -98,6 +125,15 @@
           "branch": null,
           "revision": "611337c330350c9c1823ad6d671e7f936af5ee13",
           "version": "2.0.0"
+        }
+      },
+      {
+        "package": "SimpleKeychain",
+        "repositoryURL": "https://github.com/auth0/SimpleKeychain.git",
+        "state": {
+          "branch": null,
+          "revision": "b355c569efcd409e252ccbb500d9fc2713b4d64d",
+          "version": "0.12.5"
         }
       },
       {
