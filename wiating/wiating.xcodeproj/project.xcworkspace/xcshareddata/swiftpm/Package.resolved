@@ -29,6 +29,15 @@
         }
       },
       {
+        "package": "CodableFirebase",
+        "repositoryURL": "https://github.com/alickbass/CodableFirebase",
+        "state": {
+          "branch": null,
+          "revision": "a4cda89948db93ec21249a35ecdacab8c489a116",
+          "version": "0.2.2"
+        }
+      },
+      {
         "package": "Facebook",
         "repositoryURL": "https://github.com/facebook/facebook-ios-sdk",
         "state": {
@@ -42,8 +51,8 @@
         "repositoryURL": "https://github.com/firebase/firebase-ios-sdk.git",
         "state": {
           "branch": null,
-          "revision": "38d4f0c634b0b01f02f087943723d801de4544f7",
-          "version": "8.6.1"
+          "revision": "08686f04881483d2bc098b2696e674c0ba135e47",
+          "version": "8.10.0"
         }
       },
       {
@@ -51,8 +60,8 @@
         "repositoryURL": "https://github.com/google/GoogleAppMeasurement.git",
         "state": {
           "branch": null,
-          "revision": "06e74ef7ee7326e1af724d462091eed1e5c6fb4a",
-          "version": "8.3.1"
+          "revision": "9b2f6aca5b4685c45f9f5481f19bee8e7982c538",
+          "version": "8.9.1"
         }
       },
       {
@@ -60,8 +69,8 @@
         "repositoryURL": "https://github.com/google/GoogleDataTransport.git",
         "state": {
           "branch": null,
-          "revision": "7fb27ea49414b9c5483503cd06baa821c8654d1e",
-          "version": "9.1.1"
+          "revision": "15ccdfd25ac55b9239b82809531ff26605e7556e",
+          "version": "9.1.2"
         }
       },
       {
@@ -69,8 +78,8 @@
         "repositoryURL": "https://github.com/google/GoogleUtilities.git",
         "state": {
           "branch": null,
-          "revision": "616fac2626b6b2d1424d79a6f786b4e2ed1cfb49",
-          "version": "7.5.2"
+          "revision": "797005ad8a1f0614063933e2fa010a5d13cb09d0",
+          "version": "7.6.0"
         }
       },
       {
@@ -134,6 +143,15 @@
           "branch": null,
           "revision": "b355c569efcd409e252ccbb500d9fc2713b4d64d",
           "version": "0.12.5"
+        }
+      },
+      {
+        "package": "SimpleToast",
+        "repositoryURL": "https://github.com/sanzaru/SimpleToast.git",
+        "state": {
+          "branch": null,
+          "revision": "2ad636d63fdb611f867c8cd7ccbdcea907cdf189",
+          "version": "0.5.0"
         }
       },
       {

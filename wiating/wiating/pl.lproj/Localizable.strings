@@ -7,6 +7,7 @@
 */
 
 // General categories
+"keyboard-done" = "Gotowe";
 "categories-emergencyShelter" = "Schronienie awaryjne";
 "categories-cabinWithFirePlace" = "Chatka z paleniskiem";
 "categories-campSite" = "Baza namiotowa";
@@ -26,3 +27,34 @@
 "error" = "Widok nie może być załadowany.";
 
 "detailsheet-lastupdate" = "Ostatnia aktualizacja:";
+
+"newPlaceForm-newLocation-title" = "Dodaj lokację";
+"newPlaceForm-location-name" = "Nazwa lokacji";
+"newPlaceForm-coordinates" = "Położenie geograficzne";
+"newPlaceForm-location-description" = "Opis lokacji";
+"newPlaceForm-location-hints" = "Usytuowanie i wskazówki dojścia";
+"newPlaceForm-location-type" = "Typ lokacji";
+"newPlaceForm-error-occured" = "Wystąpił błąd. Spróbuj ponownie później.";
+"newPlaceForm-water-access" = "Dostęp do wody";
+"newPlaceForm-water-access-description" = "Opis dostępu do wody (opcjonalnie)";
+"newPlaceForm-fireplace-access" = "Dostęp do ognia";
+"newPlaceForm-fireplace-access-description" = "Opis dostępu do ognia (opcjonalnie)";
+"newPlaceForm-mark-destroyed" = "Oznacz jako niedostępną lub zniszczoną";
+"newPlaceForm-mark-submit" = "Zatwierdź";
+
+"water-access-egsist" = "Istnieje dostęp do wody";
+"water-access-notEgsist" = "Brak dostępu do wody";
+"water-access-notSpecified" = "Nie podano";
+
+"fire-access-egsist" = "Jest możliwość rozpalenia ognia";
+"fire-access-notEgsist" = "Brak dostępu do ognia";
+"fire-access-notSpecified" = "Nie podano";
+
+"image-picker-add" = "Dodaj zdjęcia";
+"image-picker-delete-alert" = "Czy chcesz usunąć to zdjęcie?";
+"image-picker-take-photo" = "Zrób zdjęcie";
+"image-picker-choose" = "Wybierz opcję";
+"image-picker-camera-not-available" = "Aparat niedostępny na tym urządzeniu.";
+"image-picker-add-library" = "Dodaj z biblioteki";
+"image-picker-cancel" = "Anuluj";
+"image-picker-delete" = "Usuń";

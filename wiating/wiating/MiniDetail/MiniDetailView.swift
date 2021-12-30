@@ -84,14 +84,12 @@ struct MiniDetailView: View {
 }
 
 struct MiniDetailView_Previews: PreviewProvider {
-
     static var previews: some View {
         MiniDetailView(viewModel: MiniLocationViewModel())
     }
 }
 
 struct RoundedCorner: Shape {
-
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
 

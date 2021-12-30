@@ -50,9 +50,9 @@ struct DetailSheetView: View {
                 
                 ListCell(description: location.hints, imageName: "map.circle")
                 
-                ListCell(description: location.water, imageName: "drop.circle")
+                ListCell(description: location.waterAccess == .egsist ? location.waterDescription : "Brak", imageName: "drop.circle")
                 
-                ListCell(description: location.fireplace, imageName: "flame.circle")
+                ListCell(description: location.fireplaceAccess == .egsist ? location.fireplaceDescription : "Brak", imageName: "flame.circle")
                 
                 if let lastUpdate = location.lastUpdate {
                     HStack {
@@ -84,6 +84,6 @@ struct DetailSheetView: View {
 
 struct DetailSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailSheetView(viewModel: DetailSheetViewModel(locationData: .init(documentId: "", lastUpdate: .now, location: CLLocationCoordinate2D(), name: "New Loc", photos: Array(), type: .cave)))
+        DetailSheetView(viewModel: DetailSheetViewModel(locationData: .init(fireplaceAccess: FireAccess.notEgsist, lastUpdate: .now, location: CLLocationCoordinate2D(), name: "New Loc", photos: Array(), type: .cave, waterAccess: WaterAccess.notSpecified, destroyedNotAccessible: false)))
     }
 }

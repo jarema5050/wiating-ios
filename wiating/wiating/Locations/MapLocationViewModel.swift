@@ -42,9 +42,10 @@ class MapLocationViewModel: ObservableObject, Identifiable {
                   break
                 }
               }, receiveValue: { [weak self] (array) in
-                self?.dataSource = array.map {
-                    let annotation = MapAnnotation(coordinate: $0.location, id: $0.documentId, type: $0.type)
-                    return annotation
+                  self?.dataSource = array.compactMap {
+                      guard let documentId = $0.documentId else { return nil }
+                      let annotation = MapAnnotation(coordinate: $0.location, id: documentId, type: $0.type)
+                      return annotation
                 }
             })
             .store(in: &disposables)

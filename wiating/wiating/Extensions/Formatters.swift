@@ -17,3 +17,14 @@ class NewDateFormatter: DateFormatter {
         super.init(coder: coder)
     }
 }
+
+class LocationStringFormatter: NumberFormatter {
+    override init() {
+        super.init()
+        self.numberStyle = .decimal
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+}

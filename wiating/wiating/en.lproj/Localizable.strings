@@ -7,6 +7,8 @@
 */
 
 // General categories
+
+"keyboard-done" = "Done";
 "categories-emergencyShelter" = "Emergency shelter";
 "categories-cabinWithFirePlace" = "Cabin with fireplace";
 "categories-campSite" = "Campsite";
@@ -26,3 +28,36 @@
 "error" = "Content couldn't be loaded";
 
 "detailsheet-lastupdate" = "Last update:";
+
+"newPlaceForm-newLocation-title" = "Add new location";
+"newPlaceForm-location-name" = "Location name";
+"newPlaceForm-coordinates" = "Coordinates";
+"newPlaceForm-location-description" = "Location description";
+"newPlaceForm-location-hints" = "Access hints";
+"newPlaceForm-location-type" = "Location type";
+"newPlaceForm-error-occured" = "Error occured. Try again later.";
+
+"newPlaceForm-water-access" = "Water access";
+"newPlaceForm-water-access-description" = "Water access description (optional)";
+
+"newPlaceForm-fireplace-access" = "Fireplace access";
+"newPlaceForm-fireplace-access-description" = "Fireplace access description (optional)";
+"newPlaceForm-mark-destroyed" = "Mark as inaccessible or destroyed";
+"newPlaceForm-mark-submit" = "Submit";
+
+"water-access-egsist" = "Water access egsist";
+"water-access-notEgsist" = "Water access is not available";
+"water-access-notSpecified" = "Not specified";
+
+"fire-access-egsist" = "Lightning the campfire is possible";
+"fire-access-notEgsist" = "Fireplace is not available";
+"fire-access-notSpecified" = "Not specified";
+
+"image-picker-add" = "Add images";
+"image-picker-delete-alert" = "Do you want to delete this image?";
+"image-picker-take-photo" = "Take a photo";
+"image-picker-choose" = "Select an option";
+"image-picker-camera-not-available" = "Camera is not available on your device.";
+"image-picker-add-library" = "Add from library";
+"image-picker-cancel" = "Cancel";
+"image-picker-delete" = "Delete";

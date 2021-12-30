@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainMenuView: View {
     @Binding var isPresented: Bool
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -16,7 +17,7 @@ struct MainMenuView: View {
             }
             .navigationTitle("Menu")
             .toolbar() {
-                ToolbarItemGroup(placement: .navigationBarLeading){
+                ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button {
                         isPresented = false
                     } label: {

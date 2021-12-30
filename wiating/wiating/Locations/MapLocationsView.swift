@@ -68,7 +68,6 @@ class Coordinator: NSObject, MKMapViewDelegate, UIGestureRecognizerDelegate {
     func setupLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //locationManager.stopUpdatingLocation()
     }
     
     func centerViewOnUserLocation() {

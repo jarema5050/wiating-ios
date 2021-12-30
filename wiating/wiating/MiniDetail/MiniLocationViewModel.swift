@@ -25,7 +25,11 @@ class MiniLocationViewModel: ObservableObject, Identifiable {
                   break
                 }
               }, receiveValue: { [weak self] (model) in
-                  self?.location = MiniLocation(title: model.name, subtitle: model.description, type: model.type, imageURL: model.photos.first, id: model.documentId)
+                  guard let documentId = model.documentId else {
+                      self?.location = nil
+                      return
+                  }
+                  self?.location = MiniLocation(title: model.name, subtitle: model.description, type: model.type, imageURL: model.photos.first, id: documentId)
                   self?.locationData = model
             })
             .store(in: &disposables)

@@ -106,6 +106,23 @@ enum CategoryEnum: CaseIterable, Identifiable {
         }
     }
     
+    var key: String {
+        switch self {
+        case .emergencyShelter: return "categories-emergencyShelter".localized
+        case .cabinWithFirePlace: return "CABIN_WITH_FIREPLACE"
+        case .campSite: return "CAMPSITE"
+        case .cave: return "CAVE"
+        case .cabinWithKeeper: return "CABIN_WITH_KEEPER"
+        case .marine: return "MARINE"
+        case .observationTower: return "OBSERVATION_TOWER"
+        case .shelter: return "SHELTER"
+        case .spring: return "SPRING"
+        case .temple: return "TEMPLE"
+        case .urbex: return "URBEX"
+        case .cabin: return "CABIN"
+        }
+    }
+    
     var color: Color {
         switch self {
         case .emergencyShelter: return Color(red: 212/255, green: 0, blue: 0)
