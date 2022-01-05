@@ -54,6 +54,7 @@ class NewPlaceFormViewModel: ObservableObject {
     }
     
     private var disposables = Set<AnyCancellable>()
+    private var sender: LocationUploadable
     
     lazy var locationData: LocationData? = {
         guard let centralCoordinate = centralCoordinate else {
@@ -66,7 +67,8 @@ class NewPlaceFormViewModel: ObservableObject {
         return LocationData(description: description, fireplaceAccess: firePlaceAccess, fireplaceDescription: fireDesc, hints: locationHints, lastUpdate: .now, location: centralCoordinate, name: placeName, photos: [], type: type, waterDescription: waterDesc, waterAccess: waterAccess, destroyedNotAccessible: destroyedNotAccessible)
     }()
     
-    init() {
+    init(sender: LocationUploadable) {
+        self.sender = sender
         isReadyToSend.receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] isReady in
                 self?.formIsReady = isReady
@@ -78,24 +80,18 @@ class NewPlaceFormViewModel: ObservableObject {
         guard formIsReady else { return }
         progressPresented = true
         
-        LocationsFetcher.shared.uploadAllImages(images: imgDataArray, name: placeName.trimmingCharacters(in: .whitespacesAndNewlines))
+        sender.uploadAllImages(images: imgDataArray, name: placeName.trimmingCharacters(in: .whitespacesAndNewlines))
             .catch({ error -> Future<[URL], Never> in return Future { $0(.success([])) } })
-            .flatMap({ [weak self] urls -> AnyPublisher<Bool, Error> in
+            .flatMap({ [weak self] urls -> AnyPublisher<Bool, Never> in
                 self?.locationData?.photos = urls
-                return LocationsFetcher.shared.addNewLocationData(locationData: self?.locationData?.fullDict ?? [:])
+                if let strongSelf = self {
+                    return strongSelf.sender.addNewLocationData(locationData: self?.locationData?.fullDict ?? [:])
+                } else { return Just(false).eraseToAnyPublisher() }
             })
-            .sink(receiveCompletion: { [weak self] value in
-                self?.progressPresented = false
-                
-                switch value {
-                case .failure:
+            .sink( receiveValue: { [weak self] success in
+                self?.isPresented = false
+                if !success {
                     self?.errorToastIsPresented = true
-                case .finished:
-                  break
-                }
-            }, receiveValue: { [weak self] success in
-                if success {
-                    self?.isPresented = false
                 }
             })
             .store(in: &disposables)

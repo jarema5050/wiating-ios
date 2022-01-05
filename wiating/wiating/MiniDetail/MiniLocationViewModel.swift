@@ -13,10 +13,12 @@ class MiniLocationViewModel: ObservableObject, Identifiable {
     var locationData: LocationData?
     
     private var disposables = Set<AnyCancellable>()
+    let fetcher: LocationsFetchable
     
-    init(id: String? = nil) {
-        guard let id = id else { return }
-        LocationsFetcher.shared.getLocation(id: id).receive(on: DispatchQueue.main)
+    init(fetcher: LocationsFetchable, id: String) {
+        self.fetcher = fetcher
+
+        self.fetcher.getLocation(id: id).receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] value in
                 switch value {
                 case .failure:

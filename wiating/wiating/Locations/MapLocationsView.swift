@@ -163,7 +163,7 @@ extension Coordinator: CLLocationManagerDelegate {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(viewModel: MapLocationViewModel(), selectedPlace: .constant(MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: 50.4346, longitude: 16.6614), id: "", type: .shelter)), showingPlaceDetails: .constant(false), showingUserLocationAlert: .constant((false, "")))
+        MapView(viewModel: MapLocationViewModel(fetcher: LocationsFetcher()), selectedPlace: .constant(MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: 50.4346, longitude: 16.6614), id: "", type: .shelter)), showingPlaceDetails: .constant(false), showingUserLocationAlert: .constant((false, "")))
     }
 }
 

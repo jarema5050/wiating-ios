@@ -13,4 +13,5 @@ public enum LocationError: Error {
     case invalidResponse
     case noData
     case serializationError
+    case testError
 }

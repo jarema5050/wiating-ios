@@ -28,12 +28,16 @@ class MapLocationViewModel: ObservableObject, Identifiable {
 
     private var disposables = Set<AnyCancellable>()
 
-    init() {
+    let fetcher: LocationsFetchable
+    
+    init(fetcher: LocationsFetchable) {
+        self.fetcher = fetcher
         prepareAnnotations()
     }
     
     func prepareAnnotations() {
-        LocationsFetcher.shared.fetchLocations().receive(on: DispatchQueue.main)
+        fetcher.fetchLocations()
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] value in
                 switch value {
                 case .failure:

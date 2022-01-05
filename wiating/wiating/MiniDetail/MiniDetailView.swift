@@ -85,7 +85,7 @@ struct MiniDetailView: View {
 
 struct MiniDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MiniDetailView(viewModel: MiniLocationViewModel())
+        MiniDetailView(viewModel: MiniLocationViewModel(fetcher: LocationsFetcher(), id: ""))
     }
 }
 

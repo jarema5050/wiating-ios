@@ -16,8 +16,10 @@ class FocusedScrollViewReaderModel: ObservableObject {
 
 struct NewPlaceFormView: View {
     @Binding var isPresented: Bool
-    @ObservedObject private var viewModel: NewPlaceFormViewModel = NewPlaceFormViewModel()
+    
+    @ObservedObject private var viewModel: NewPlaceFormViewModel = NewPlaceFormViewModel(sender: LocationUploader())
     @ObservedObject private var mapViewModel: ChooseLocationViewModel = ChooseLocationViewModel()
+    
     @State private var focusedModel = FocusedScrollViewReaderModel()
     @State var showToast: Bool = false
     

@@ -21,7 +21,7 @@ struct ContentView: View {
     
     private var disposables = Set<AnyCancellable>()
     
-    var mapLocationViewModel = MapLocationViewModel()
+    var mapLocationViewModel = MapLocationViewModel(fetcher: LocationsFetcher())
     
     var mapView: some View {
         let mapView = MapView(viewModel: mapLocationViewModel, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, showingUserLocationAlert: $showingUserLocationAlert)
@@ -73,7 +73,7 @@ struct ContentView: View {
                 
                 if showingPlaceDetails {
                     Spacer()
-                    MiniDetailView(viewModel: MiniLocationViewModel(id: selectedPlace.id))
+                    MiniDetailView(viewModel: MiniLocationViewModel(fetcher: LocationsFetcher(), id: selectedPlace.id))
                 } else { Spacer() }
             }.edgesIgnoringSafeArea(.bottom)
         }

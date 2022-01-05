@@ -10,7 +10,7 @@ import CoreLocation
 import FirebaseFirestore
 import CodableFirebase
 
-struct LocationData: Encodable, Identifiable {
+struct LocationData: Identifiable {
     var documentId: String?
     var id = UUID()
     var description: String?
@@ -26,6 +26,14 @@ struct LocationData: Encodable, Identifiable {
     var waterAccess: WaterAccess
     var destroyedNotAccessible: Bool
     
+    var fullDict: Dictionary<String, Any> {
+        var dict = self.dictionary
+        dict.updateValue(GeoPoint(latitude: location.latitude, longitude: location.longitude), forKey: CodingKeys.location.stringValue)
+        dict.updateValue(Timestamp(seconds: Int64(Date.now.timeIntervalSince1970), nanoseconds: 0), forKey: CodingKeys.lastUpdate.stringValue)
+        return dict
+    }
+}
+extension LocationData: Encodable {
     enum CodingKeys: CodingKey {
         case name
         case description
@@ -39,8 +47,8 @@ struct LocationData: Encodable, Identifiable {
         case location
         case photos
         case lastUpdate
+        case documentId
     }
-    
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -62,13 +70,9 @@ struct LocationData: Encodable, Identifiable {
             try container.encode(fireplaceDescription, forKey: .firePlaceDescription)
         }
     }
+
     
-    var fullDict: Dictionary<String, Any> {
-        var dict = self.dictionary
-        dict.updateValue(GeoPoint(latitude: location.latitude, longitude: location.longitude), forKey: CodingKeys.location.stringValue)
-        dict.updateValue(Timestamp(seconds: Int64(Date.now.timeIntervalSince1970), nanoseconds: 0), forKey: CodingKeys.lastUpdate.stringValue)
-        return dict
-    }
+    
 }
 
 extension Timestamp: TimestampType {}

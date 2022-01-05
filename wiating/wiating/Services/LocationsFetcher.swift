@@ -9,8 +9,6 @@ import Foundation
 import CoreLocation
 import Combine
 import FirebaseFirestore
-import FirebaseStorage
-
 
 public enum ImageError: Error {
     case apiError(String)
@@ -21,66 +19,13 @@ public enum ImageError: Error {
 protocol LocationsFetchable {
     typealias Locations = [LocationData]
     func fetchLocations() -> AnyPublisher<Locations, LocationError>
+    func getLocation(id: String) -> AnyPublisher<LocationData, LocationError>
 }
 
 class LocationsFetcher: LocationsFetchable {
-    public static var shared = LocationsFetcher()
     let db = Firestore.firestore()
-    
-    func fetchLocations() -> AnyPublisher<Locations, LocationError> {
-        return download()
-    }
-    
-    public func uploadAllImages(images: [Data], name: String) -> AnyPublisher<[URL], ImageError> {
-        let requests = images.enumerated().map { (index, imageData) in
-            return uploadImage(image: imageData, name: name + String(index + 1))
-        }
         
-        return Publishers.MergeMany(requests)
-            .collect()
-            .eraseToAnyPublisher()
-    }
-    
-    public func uploadImage(image: Data, name: String) -> AnyPublisher<URL, ImageError> {
-        return Future { promise in
-            let storage = Storage.storage()
-            let storageRef = storage.reference()
-
-            let riversRef = storageRef.child("images/\(name).jpg")
-
-            riversRef.putData(image, metadata: nil) { (_, error) in
-                if let error = error {
-                    promise(.failure(.apiError(error.localizedDescription)))
-                    return
-                }
-                
-                riversRef.downloadURL { (url, error) in
-                    guard let downloadURL = url else {
-                        if let error = error {
-                            promise(.failure(.apiError(error.localizedDescription)))
-                        }
-                        return
-                    }
-                    
-                    promise(.success(downloadURL))
-                }
-            }
-        }.eraseToAnyPublisher()
-    }
-    
-    public func addNewLocationData(locationData: [String: Any]) -> AnyPublisher<Bool, Error> {
-        return Future { [weak self] promise in
-            self?.db.collection("places").addDocument(data: locationData) { err in
-                if let err = err {
-                    promise(.failure(err))
-                } else {
-                    promise(.success(true))
-                }
-            }
-        }.eraseToAnyPublisher()
-    }
-    
-    private func download() -> AnyPublisher<Locations, LocationError> {
+    func fetchLocations() -> AnyPublisher<Locations, LocationError> {
         return Future { [weak self] promise in
             self?.db.collection("places").addSnapshotListener() { (querySnapshot, err) in
                 if let err = err {

@@ -46,6 +46,10 @@
 		A495E1172766A14F007168C6 /* ChooseLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495E1162766A14F007168C6 /* ChooseLocationView.swift */; };
 		A497AE2927353AF6009E037D /* MiniDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497AE2827353AF6009E037D /* MiniDetailView.swift */; };
 		A4A154FA277B294D00B3672D /* ProgressCircleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A154F9277B294D00B3672D /* ProgressCircleModifier.swift */; };
+		A4A191B427844FBE00DBF2FC /* MapLocationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A191B327844FBE00DBF2FC /* MapLocationViewModelTests.swift */; };
+		A4A191B62784FB5600DBF2FC /* LocationUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A191B52784FB5600DBF2FC /* LocationUploader.swift */; };
+		A4A191B8278508D200DBF2FC /* MiniLocationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A191B7278508D200DBF2FC /* MiniLocationViewModelTests.swift */; };
+		A4A191BA27850E4E00DBF2FC /* MockLocationFetchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A191B927850E4E00DBF2FC /* MockLocationFetchers.swift */; };
 		A4AB0BE2276B488300F0524B /* NewPlaceFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB0BE1276B488300F0524B /* NewPlaceFormViewModel.swift */; };
 		A4AB0BE4276B8A0A00F0524B /* UIApplicationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB0BE3276B8A0A00F0524B /* UIApplicationExt.swift */; };
 		A4AB0BE6276B8B7600F0524B /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB0BE5276B8B7600F0524B /* ViewExt.swift */; };
@@ -127,6 +131,10 @@
 		A495E1162766A14F007168C6 /* ChooseLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationView.swift; sourceTree = "<group>"; };
 		A497AE2827353AF6009E037D /* MiniDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDetailView.swift; sourceTree = "<group>"; };
 		A4A154F9277B294D00B3672D /* ProgressCircleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleModifier.swift; sourceTree = "<group>"; };
+		A4A191B327844FBE00DBF2FC /* MapLocationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationViewModelTests.swift; sourceTree = "<group>"; };
+		A4A191B52784FB5600DBF2FC /* LocationUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUploader.swift; sourceTree = "<group>"; };
+		A4A191B7278508D200DBF2FC /* MiniLocationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniLocationViewModelTests.swift; sourceTree = "<group>"; };
+		A4A191B927850E4E00DBF2FC /* MockLocationFetchers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationFetchers.swift; sourceTree = "<group>"; };
 		A4AB0BE1276B488300F0524B /* NewPlaceFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceFormViewModel.swift; sourceTree = "<group>"; };
 		A4AB0BE3276B8A0A00F0524B /* UIApplicationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExt.swift; sourceTree = "<group>"; };
 		A4AB0BE5276B8B7600F0524B /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
@@ -193,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				A4552786272B11570015EB92 /* LocationsFetcher.swift */,
+				A4A191B52784FB5600DBF2FC /* LocationUploader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -327,6 +336,9 @@
 				A4BBA5F526E0D55A002FFA4D /* Info.plist */,
 				A47B88E9274F902A00EF4D81 /* AuthManagerTests.swift */,
 				A47B88EB274FA9BE00EF4D81 /* ExtensionsTest.swift */,
+				A4A191B327844FBE00DBF2FC /* MapLocationViewModelTests.swift */,
+				A4A191B927850E4E00DBF2FC /* MockLocationFetchers.swift */,
+				A4A191B7278508D200DBF2FC /* MiniLocationViewModelTests.swift */,
 			);
 			path = wiatingTests;
 			sourceTree = "<group>";
@@ -518,6 +530,7 @@
 				A45C464227481BAB009768AF /* DetailSheetView.swift in Sources */,
 				A48BE9CB2762256100AEC24F /* DetailSheetViewModel.swift in Sources */,
 				A4A154FA277B294D00B3672D /* ProgressCircleModifier.swift in Sources */,
+				A4A191B62784FB5600DBF2FC /* LocationUploader.swift in Sources */,
 				A42630DD275F95C9000D7CCF /* LoginButtonView.swift in Sources */,
 				A46E175326E24AFE006DA795 /* CategoriesPickerView.swift in Sources */,
 				A47B88E8274F8DEE00EF4D81 /* AuthManager.swift in Sources */,
@@ -539,6 +552,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A191BA27850E4E00DBF2FC /* MockLocationFetchers.swift in Sources */,
+				A4A191B8278508D200DBF2FC /* MiniLocationViewModelTests.swift in Sources */,
+				A4A191B427844FBE00DBF2FC /* MapLocationViewModelTests.swift in Sources */,
 				A4BBA5F426E0D55A002FFA4D /* wiatingTests.swift in Sources */,
 				A47B88EC274FA9BE00EF4D81 /* ExtensionsTest.swift in Sources */,
 				A47B88EA274F902A00EF4D81 /* AuthManagerTests.swift in Sources */,
