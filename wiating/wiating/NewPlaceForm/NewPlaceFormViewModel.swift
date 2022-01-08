@@ -42,7 +42,7 @@ class NewPlaceFormViewModel: ObservableObject {
     
     private var isReadyToSend: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest4($placeName, $description, $locationHints, $centralCoordinate)
-            .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
+            //.debounce(for: .milliseconds(500), scheduler: RunLoop.main)
             .map { name, desc, hints, coords in
                 guard !name.isEmpty,
                       !desc.isEmpty,
@@ -77,22 +77,26 @@ class NewPlaceFormViewModel: ObservableObject {
     }
     
     public func uploadAll() {
-        guard formIsReady else { return }
         progressPresented = true
         
-        sender.uploadAllImages(images: imgDataArray, name: placeName.trimmingCharacters(in: .whitespacesAndNewlines))
-            .catch({ error -> Future<[URL], Never> in return Future { $0(.success([])) } })
+        let trimmedName = placeName.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        sender.uploadAllImages(images: imgDataArray, name: trimmedName)
+            .retry(3)
+            .replaceError(with: [])
             .flatMap({ [weak self] urls -> AnyPublisher<Bool, Never> in
-                self?.locationData?.photos = urls
-                if let strongSelf = self {
-                    return strongSelf.sender.addNewLocationData(locationData: self?.locationData?.fullDict ?? [:])
-                } else { return Just(false).eraseToAnyPublisher() }
-            })
-            .sink( receiveValue: { [weak self] success in
-                self?.isPresented = false
-                if !success {
-                    self?.errorToastIsPresented = true
+                if let strongSelf = self,
+                   urls.count == strongSelf.imgDataArray.count,
+                   let fullDict = self?.locationData?.fullDict {
+                    self?.locationData?.photos = urls
+                    return strongSelf.sender.addNewLocationData(locationData: fullDict)
+                } else {
+                    return Just(false).eraseToAnyPublisher()
                 }
+            })
+            .sink(receiveValue: { [weak self] success in
+                self?.isPresented = !success
+                self?.errorToastIsPresented = !success
             })
             .store(in: &disposables)
     }

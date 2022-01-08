@@ -53,6 +53,7 @@
 		A4AB0BE2276B488300F0524B /* NewPlaceFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB0BE1276B488300F0524B /* NewPlaceFormViewModel.swift */; };
 		A4AB0BE4276B8A0A00F0524B /* UIApplicationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB0BE3276B8A0A00F0524B /* UIApplicationExt.swift */; };
 		A4AB0BE6276B8B7600F0524B /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB0BE5276B8B7600F0524B /* ViewExt.swift */; };
+		A4B7028E2785C7930095AD60 /* NewPlaceFormViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B7028D2785C7930095AD60 /* NewPlaceFormViewModelTest.swift */; };
 		A4BBA5E226E0D559002FFA4D /* wiatingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBA5E126E0D559002FFA4D /* wiatingApp.swift */; };
 		A4BBA5E426E0D559002FFA4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBA5E326E0D559002FFA4D /* ContentView.swift */; };
 		A4BBA5E626E0D55A002FFA4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4BBA5E526E0D55A002FFA4D /* Assets.xcassets */; };
@@ -138,6 +139,7 @@
 		A4AB0BE1276B488300F0524B /* NewPlaceFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceFormViewModel.swift; sourceTree = "<group>"; };
 		A4AB0BE3276B8A0A00F0524B /* UIApplicationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExt.swift; sourceTree = "<group>"; };
 		A4AB0BE5276B8B7600F0524B /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
+		A4B7028D2785C7930095AD60 /* NewPlaceFormViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceFormViewModelTest.swift; sourceTree = "<group>"; };
 		A4BBA5DE26E0D559002FFA4D /* wiating.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wiating.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4BBA5E126E0D559002FFA4D /* wiatingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wiatingApp.swift; sourceTree = "<group>"; };
 		A4BBA5E326E0D559002FFA4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -250,8 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				A48F60DC272B204100B60AA4 /* MapLocationsView.swift */,
-				A4552785272B11570015EB92 /* LocationError.swift */,
 				A48F60DD272B204100B60AA4 /* MapLocationViewModel.swift */,
+				A4552785272B11570015EB92 /* LocationError.swift */,
 				A4555B4526E91BF60065067C /* LocationData.swift */,
 			);
 			path = Locations;
@@ -339,6 +341,7 @@
 				A4A191B327844FBE00DBF2FC /* MapLocationViewModelTests.swift */,
 				A4A191B927850E4E00DBF2FC /* MockLocationFetchers.swift */,
 				A4A191B7278508D200DBF2FC /* MiniLocationViewModelTests.swift */,
+				A4B7028D2785C7930095AD60 /* NewPlaceFormViewModelTest.swift */,
 			);
 			path = wiatingTests;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B7028E2785C7930095AD60 /* NewPlaceFormViewModelTest.swift in Sources */,
 				A4A191BA27850E4E00DBF2FC /* MockLocationFetchers.swift in Sources */,
 				A4A191B8278508D200DBF2FC /* MiniLocationViewModelTests.swift in Sources */,
 				A4A191B427844FBE00DBF2FC /* MapLocationViewModelTests.swift in Sources */,

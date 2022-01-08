@@ -11,10 +11,6 @@ import CoreLocation
 struct DetailSheetView: View {
     var viewModel: DetailSheetViewModel
     
-    var locationStr: String {
-        "\(viewModel.data.location.latitude) N, \(viewModel.data.location.longitude) E"
-    }
-    
     var body: some View {
         let location = viewModel.data
         
@@ -44,8 +40,8 @@ struct DetailSheetView: View {
                     Text(desc).font(.system(size: 16)).padding([.top, .bottom], 8)
                 }
                 
-                ListCell(description: locationStr, imageName: "mappin.circle").onTapGesture {
-                    UIPasteboard.general.string = locationStr
+                ListCell(description: viewModel.locationStr, imageName: "mappin.circle").onTapGesture {
+                    UIPasteboard.general.string = viewModel.locationStr
                 }
                 
                 ListCell(description: location.hints, imageName: "map.circle")

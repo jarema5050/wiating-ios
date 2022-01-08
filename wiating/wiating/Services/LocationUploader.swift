@@ -66,5 +66,4 @@ struct LocationUploader: LocationUploadable {
             }
         }.eraseToAnyPublisher()
     }
-
 }
