@@ -27,6 +27,8 @@
 "error" = "Widok nie może być załadowany.";
 
 "detailsheet-lastupdate" = "Ostatnia aktualizacja:";
+"detailsheet-null" = "Brak";
+"detailsheet-copied" = "Skopiowano współrzędne do schowka.";
 
 "newPlaceForm-newLocation-title" = "Dodaj lokację";
 "newPlaceForm-location-name" = "Nazwa lokacji";
@@ -58,3 +60,5 @@
 "image-picker-add-library" = "Dodaj z biblioteki";
 "image-picker-cancel" = "Anuluj";
 "image-picker-delete" = "Usuń";
+
+"content-view-added-new-location" = "Nowa lokacja została właśnie dodana.";

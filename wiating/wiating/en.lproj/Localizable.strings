@@ -28,6 +28,8 @@
 "error" = "Content couldn't be loaded";
 
 "detailsheet-lastupdate" = "Last update:";
+"detailsheet-null" = "Lacking";
+"detailsheet-copied" = "Coordinates copied to clipboard.";
 
 "newPlaceForm-newLocation-title" = "Add new location";
 "newPlaceForm-location-name" = "Location name";
@@ -61,3 +63,5 @@
 "image-picker-add-library" = "Add from library";
 "image-picker-cancel" = "Cancel";
 "image-picker-delete" = "Delete";
+
+"content-view-added-new-location" = "The new location has just been added.";

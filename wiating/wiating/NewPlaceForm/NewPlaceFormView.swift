@@ -16,15 +16,18 @@ class FocusedScrollViewReaderModel: ObservableObject {
 
 struct NewPlaceFormView: View {
     @Binding var isPresented: Bool
+    @Binding var newPlaceAdded: Bool
     
-    @ObservedObject private var viewModel: NewPlaceFormViewModel = NewPlaceFormViewModel(sender: LocationUploader())
+    @ObservedObject var viewModel: NewPlaceFormViewModel
     @ObservedObject private var mapViewModel: ChooseLocationViewModel = ChooseLocationViewModel()
     
     @State private var focusedModel = FocusedScrollViewReaderModel()
     @State var showToast: Bool = false
     
     private let toastOptions = SimpleToastOptions(
-        alignment: .bottom, hideAfter: 5
+        alignment: .bottom,
+        hideAfter: 5,
+        showBackdrop: false
     )
     
     var body: some View {
@@ -106,7 +109,10 @@ struct NewPlaceFormView: View {
                             }
                             .frame(maxWidth:.infinity, maxHeight: .infinity).foregroundColor(.white)
                             .background( viewModel.formIsReady ? Color("launch_color") : Color("launch_color").opacity(0.5))
-                            .onReceive(viewModel.$isPresented, perform: { isPresented = $0 })
+                            .onReceive(viewModel.$isPresented, perform: {
+                                isPresented = $0
+                                newPlaceAdded = viewModel.newPlaceAdded
+                            })
                         }.listRowBackground(Color.clear).listRowInsets(.init())
                     }.onReceive(focusedModel.$focusedId) { _ in
                         value.scrollTo(focusedModel.focusedId, anchor: .top)
@@ -137,10 +143,10 @@ struct NewPlaceFormView: View {
         .progressCover(isPresented: $viewModel.progressPresented)
         .simpleToast(isPresented: $viewModel.errorToastIsPresented, options: toastOptions) {
             Text("newPlaceForm-error-occured".localized)
-            .padding()
-            .background(Color.white)
-            .foregroundColor(Color("launch_color"))
-            .cornerRadius(10)
+                .padding()
+                .foregroundColor(Color("launch_color"))
+                .background(Color.white.opacity(0.8))
+                .cornerRadius(8)
         }
     }
 }
@@ -148,6 +154,6 @@ struct NewPlaceFormView: View {
 struct NewPlaceFormView_Previews: PreviewProvider {
     
     static var previews: some View {
-        NewPlaceFormView(isPresented: .constant(false))
+        NewPlaceFormView(isPresented: .constant(true), newPlaceAdded: .constant(false), viewModel: NewPlaceFormViewModel(sender: LocationUploader()))
     }
 }

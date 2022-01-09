@@ -12,14 +12,13 @@ import UIKit
 import Combine
 import SwiftUI
 
-struct NewPlaceResult {
-    var newPlaceAdded: Bool
-}
-
 class NewPlaceFormViewModel: ObservableObject {
     @Published var placeName: String = ""
     @Published var description: String = ""
     @Published var locationHints: String = ""
+        
+    @Published var isPresented: Bool = true
+    @Published var newPlaceAdded: Bool = false
     
     @Published var type: CategoryEnum = .cabin
     @Published var waterAccess: WaterAccess = .notSpecified
@@ -34,7 +33,6 @@ class NewPlaceFormViewModel: ObservableObject {
     @Published var progressPresented: Bool = false
     
     @Published var imgArray: [UIImage] = []
-    @Published var isPresented: Bool = true
     @Published var formIsReady: Bool = false
     @Published var errorToastIsPresented: Bool = false
     
@@ -69,6 +67,7 @@ class NewPlaceFormViewModel: ObservableObject {
     
     init(sender: LocationUploadable) {
         self.sender = sender
+        
         isReadyToSend.receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] isReady in
                 self?.formIsReady = isReady
@@ -85,16 +84,19 @@ class NewPlaceFormViewModel: ObservableObject {
             .retry(3)
             .replaceError(with: [])
             .flatMap({ [weak self] urls -> AnyPublisher<Bool, Never> in
+                self?.locationData?.photos = urls
+                
                 if let strongSelf = self,
                    urls.count == strongSelf.imgDataArray.count,
                    let fullDict = self?.locationData?.fullDict {
-                    self?.locationData?.photos = urls
                     return strongSelf.sender.addNewLocationData(locationData: fullDict)
                 } else {
                     return Just(false).eraseToAnyPublisher()
                 }
             })
             .sink(receiveValue: { [weak self] success in
+                self?.progressPresented = false
+                self?.newPlaceAdded = success
                 self?.isPresented = !success
                 self?.errorToastIsPresented = !success
             })
@@ -104,7 +106,7 @@ class NewPlaceFormViewModel: ObservableObject {
 
 extension CLLocationCoordinate2D {
     var description: String {
-        "\(self.latitude), \(self.longitude)"
+        "\(self.latitude) N, \(self.longitude) E"
     }
 }
 

@@ -18,13 +18,10 @@ struct MockLocationUploader: LocationUploadable {
     func uploadAllImages(images: [Data], name: String) ->
     AnyPublisher<[URL], ImageError> {
         imagesResult.publisher.eraseToAnyPublisher()
-        //Just([URL] (repeating: url, count: images.count)).etFailureType(to: ImageError.self).eraseToAnyPublisher()
     }
     
     func addNewLocationData(locationData: [String : Any]) -> AnyPublisher<Bool, Never> {
-        locationResult.publisher.eraseToAnyPublisher()
-        //Just(true).eraseToAnyPublisher()
-    }
+        locationResult.publisher.eraseToAnyPublisher()    }
 }
 
 class NewPlaceFormViewModelTest: XCTestCase {
@@ -222,18 +219,20 @@ class NewPlaceFormViewModelTest: XCTestCase {
         
         XCTAssertFalse(vm.errorToastIsPresented, "Error toast is presented - expected false")
         
+        XCTAssertFalse(vm.progressPresented, "Progress should be presented on just on loading")
+        
         let promise = expectation(description: "Is presented and error toast is presented --- expected: \(errorPresentedAndFormPresented)")
         
         vm.uploadAll()
         
-        Publishers.CombineLatest(vm.$isPresented, vm.$errorToastIsPresented)
+        Publishers.CombineLatest3(vm.$isPresented, vm.$errorToastIsPresented, vm.$progressPresented)
             .debounce(for: .milliseconds(200), scheduler: RunLoop.main)
-            .sink(receiveValue: { (isPresented, errorToastIsPresented) in
-                isPresented == errorPresentedAndFormPresented && errorToastIsPresented == errorPresentedAndFormPresented ? {
+            .sink(receiveValue: { (isPresented, errorToastIsPresented, progressPresented) in
+                if isPresented == errorPresentedAndFormPresented,
+                   errorToastIsPresented == errorPresentedAndFormPresented,
+                   !progressPresented {
                     promise.fulfill()
-                }() : {
-                    print("is presented \(isPresented)", "errorisPresented \(errorToastIsPresented)")
-                }()
+                }
             })
             .store(in: &disposables)
         

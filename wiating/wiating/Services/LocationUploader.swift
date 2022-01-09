@@ -10,6 +10,11 @@ import Combine
 import FirebaseFirestore
 import FirebaseStorage
 
+public enum ImageError: Error {
+    case apiError(String)
+    case invalidResponse
+}
+
 protocol LocationUploadable {
     func uploadAllImages(images: [Data], name: String) -> AnyPublisher<[URL], ImageError>
     func addNewLocationData(locationData: [String: Any]) -> AnyPublisher<Bool, Never>

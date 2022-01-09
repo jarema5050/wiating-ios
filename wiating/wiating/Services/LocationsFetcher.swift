@@ -10,12 +10,6 @@ import CoreLocation
 import Combine
 import FirebaseFirestore
 
-public enum ImageError: Error {
-    case apiError(String)
-    case invalidResponse
-}
-
-
 protocol LocationsFetchable {
     typealias Locations = [LocationData]
     func fetchLocations() -> AnyPublisher<Locations, LocationError>

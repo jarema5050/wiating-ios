@@ -7,8 +7,17 @@
 
 import SwiftUI
 import CoreLocation
+import SimpleToast
 
 struct DetailSheetView: View {
+    @State private var toastVisible: Bool = false
+    
+    private let toastOptions = SimpleToastOptions(
+        alignment: .bottom,
+        hideAfter: 5,
+        showBackdrop: false
+    )
+    
     var viewModel: DetailSheetViewModel
     
     var body: some View {
@@ -40,15 +49,16 @@ struct DetailSheetView: View {
                     Text(desc).font(.system(size: 16)).padding([.top, .bottom], 8)
                 }
                 
-                ListCell(description: viewModel.locationStr, imageName: "mappin.circle").onTapGesture {
-                    UIPasteboard.general.string = viewModel.locationStr
+                ListCell(description: viewModel.data.location.description, imageName: "mappin.circle").onTapGesture {
+                    UIPasteboard.general.string = viewModel.data.location.description
+                    toastVisible = true
                 }
                 
                 ListCell(description: location.hints, imageName: "map.circle")
                 
-                ListCell(description: location.waterAccess == .egsist ? location.waterDescription : "Brak", imageName: "drop.circle")
+                ListCell(description: location.waterAccess == .egsist ? location.waterDescription : "detailsheet-null".localized, imageName: "drop.circle")
                 
-                ListCell(description: location.fireplaceAccess == .egsist ? location.fireplaceDescription : "Brak", imageName: "flame.circle")
+                ListCell(description: location.fireplaceAccess == .egsist ? location.fireplaceDescription : "detailsheet-null".localized, imageName: "flame.circle")
                 
                 if let lastUpdate = location.lastUpdate {
                     HStack {
@@ -57,6 +67,13 @@ struct DetailSheetView: View {
                     }
                 }
             }.listStyle(PlainListStyle())
+        }
+        .simpleToast(isPresented: $toastVisible, options: toastOptions) {
+            Text("detailsheet-copied".localized)
+                .padding()
+                .foregroundColor(Color("launch_color"))
+                .background(Color.white.opacity(0.8))
+                .cornerRadius(8)
         }
     }
     

@@ -49,7 +49,7 @@ struct ProgressModifier: ViewModifier {
     @Binding var isVisible: Bool
     
     func body(content: Content) -> some View {
-        content.fullScreenCover(isPresented: $isVisible) { ProgressCircleModifier() }
+        content.edgesIgnoringSafeArea(.all).fullScreenCover(isPresented: $isVisible) { ProgressCircleModifier() }
     }
 }
 
