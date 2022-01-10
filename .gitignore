@@ -77,3 +77,5 @@ fastlane/test_output
 
 iOSInjectionProject/
 wiating/wiating/Auth0.plist
+wiating/wiating/GoogleService-Info.plist
+

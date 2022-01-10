@@ -11,7 +11,6 @@
 		A42630DD275F95C9000D7CCF /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42630DC275F95C9000D7CCF /* LoginButtonView.swift */; };
 		A4380FE02771E0BC0001497B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A4380FDF2771E0BC0001497B /* FirebaseStorage */; };
 		A43AD47F275E1FFE003EA454 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = A43AD47E275E1FFE003EA454 /* Auth0 */; };
-		A43AD481275E2476003EA454 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = A43AD480275E2476003EA454 /* Auth0.plist */; };
 		A43C4D83274EFFAD00ED2641 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C4D82274EFFAD00ED2641 /* Formatters.swift */; };
 		A4552787272B11570015EB92 /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4552785272B11570015EB92 /* LocationError.swift */; };
 		A4552788272B11570015EB92 /* LocationsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4552786272B11570015EB92 /* LocationsFetcher.swift */; };
@@ -63,6 +62,7 @@
 		A4BBA60E26E0DF02002FFA4D /* MapyKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4BBA60D26E0DF02002FFA4D /* MapyKit.xcframework */; };
 		A4BBA60F26E0DF02002FFA4D /* MapyKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4BBA60D26E0DF02002FFA4D /* MapyKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A4C31C82276951AC00BB019B /* WaterAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C31C81276951AC00BB019B /* WaterAccess.swift */; };
+		A4D1F723278B6C3D00AB4357 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4D1F722278B6C3D00AB4357 /* Auth0.plist */; };
 		A4D99823275F846900980E03 /* LoginButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D99822275F846900980E03 /* LoginButtonViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +99,6 @@
 
 /* Begin PBXFileReference section */
 		A42630DC275F95C9000D7CCF /* LoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
-		A43AD480275E2476003EA454 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		A43C4D82274EFFAD00ED2641 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		A4552785272B11570015EB92 /* LocationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 		A4552786272B11570015EB92 /* LocationsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsFetcher.swift; sourceTree = "<group>"; };
@@ -154,6 +153,7 @@
 		A4BBA60026E0D55A002FFA4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4BBA60D26E0DF02002FFA4D /* MapyKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapyKit.xcframework; path = Carthage/Build/MapyKit.xcframework; sourceTree = "<group>"; };
 		A4C31C81276951AC00BB019B /* WaterAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterAccess.swift; sourceTree = "<group>"; };
+		A4D1F722278B6C3D00AB4357 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		A4D99822275F846900980E03 /* LoginButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -316,7 +316,7 @@
 				A46F315E274994C30009E027 /* SliderView.swift */,
 				A4BBA5E526E0D55A002FFA4D /* Assets.xcassets */,
 				A4BBA5EA26E0D55A002FFA4D /* Info.plist */,
-				A43AD480275E2476003EA454 /* Auth0.plist */,
+				A4D1F722278B6C3D00AB4357 /* Auth0.plist */,
 				A466A20E26E695E80069A15F /* GoogleService-Info.plist */,
 				A4BBA5E726E0D55A002FFA4D /* Preview Content */,
 			);
@@ -484,7 +484,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A43AD481275E2476003EA454 /* Auth0.plist in Resources */,
+				A4D1F723278B6C3D00AB4357 /* Auth0.plist in Resources */,
 				A4BBA5E926E0D55A002FFA4D /* Preview Assets.xcassets in Resources */,
 				A466A20F26E695E80069A15F /* GoogleService-Info.plist in Resources */,
 				A478A58426E2D9B500AEEEC5 /* Localizable.strings in Resources */,
