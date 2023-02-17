@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1.0">
+    <entity name="CDImage" representedClassName="CDImage" syncable="YES" codeGenerationType="class">
+        <attribute name="uri" attributeType="URI"/>
+        <relationship name="depicts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDLocation" inverseName="photos" inverseEntity="CDLocation"/>
+        <relationship name="isAvatar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="hasAvatar" inverseEntity="CDUser"/>
+    </entity>
+    <entity name="CDLocation" representedClassName="CDLocation" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="destroyed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="fireplaceAccess" attributeType="String"/>
+        <attribute name="fireplaceDescription" optional="YES" attributeType="String"/>
+        <attribute name="hints" optional="YES" attributeType="String"/>
+        <attribute name="lastUpdate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="objDescription" optional="YES" attributeType="String"/>
+        <attribute name="waterAccess" attributeType="String"/>
+        <attribute name="waterDescription" optional="YES" attributeType="String"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="ownedLocations" inverseEntity="CDUser"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDImage" inverseName="depicts" inverseEntity="CDImage"/>
+        <relationship name="reports" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDReport" inverseName="refers" inverseEntity="CDReport"/>
+    </entity>
+    <entity name="CDReport" representedClassName="CDReport" syncable="YES" codeGenerationType="class">
+        <attribute name="objDescription" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="refers" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDLocation" inverseName="reports" inverseEntity="CDLocation"/>
+        <relationship name="reporter" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="reports" inverseEntity="CDUser"/>
+    </entity>
+    <entity name="CDUser" representedClassName="CDUser" syncable="YES" codeGenerationType="class">
+        <attribute name="displayName" optional="YES" attributeType="String"/>
+        <relationship name="hasAvatar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDImage" inverseName="isAvatar" inverseEntity="CDImage"/>
+        <relationship name="ownedLocations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDLocation" inverseName="owner" inverseEntity="CDLocation"/>
+        <relationship name="reports" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDReport" inverseName="reporter" inverseEntity="CDReport"/>
+    </entity>
+</model>

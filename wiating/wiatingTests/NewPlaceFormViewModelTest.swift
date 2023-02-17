@@ -10,20 +10,6 @@ import Combine
 import CoreLocation
 @testable import wiating
 
-struct MockLocationUploader: LocationUploadable {
-    
-    var imagesResult: Result<[URL], ImageError>
-    var locationResult: Result<Bool, Never>
-    
-    func uploadAllImages(images: [Data], name: String) ->
-    AnyPublisher<[URL], ImageError> {
-        imagesResult.publisher.eraseToAnyPublisher()
-    }
-    
-    func addNewLocationData(locationData: [String : Any]) -> AnyPublisher<Bool, Never> {
-        locationResult.publisher.eraseToAnyPublisher()    }
-}
-
 class NewPlaceFormViewModelTest: XCTestCase {
     var disposables = Set<AnyCancellable>()
     
